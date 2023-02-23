@@ -29,7 +29,7 @@ public class LHeader extends BObject {
     this.format = format;
     this.endianness = endianness;
     this.integer = integer;
-    this.sizeT = sizeT;
+    this.sizeT = integer;
     this.bool = bool;
     this.number = number;
     this.linteger = linteger;

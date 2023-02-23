@@ -83,9 +83,9 @@ abstract public class LHeaderType extends BObjectType<LHeader> {
   protected void parse_format(ByteBuffer buffer, BHeader header, LHeaderParseState s) {
     // 1 byte Lua "format"
     int format = 0xFF & buffer.get();
-    if(format != 0) {
-      throw new IllegalStateException("The input chunk reports a non-standard lua format: " + format);
-    }
+//     if(format != 0) {
+//       throw new IllegalStateException("The input chunk reports a non-standard lua format: " + format);
+//     }
     s.format = format;
     if(header.debug) {
       System.out.println("-- format: " + format);
@@ -146,15 +146,17 @@ abstract public class LHeaderType extends BObjectType<LHeader> {
   
   protected void parse_size_t_size(ByteBuffer buffer, BHeader header, LHeaderParseState s) {
     // 1 byte sizeT size
-    int sizeTSize = 0xFF & buffer.get();
-    if(header.debug) {
-      System.out.println("-- size_t size: " + sizeTSize);
-    }
-    s.sizeT = new BIntegerType50(sizeTSize);
+    // int sizeTSize = 0xFF & buffer.get();
+    // if(header.debug) {
+      // System.out.println("-- size_t size: " + sizeTSize);
+    // }
+    // s.sizeT = new BIntegerType50(sizeTSize);
+    // parse_int_size(buffer, header, s);
   }
   
   protected void write_size_t_size(OutputStream out, BHeader header, LHeader object) throws IOException {
-    out.write(object.sizeT.getSize());
+    // out.write(object.sizeT.getSize());
+    out.write(object.integer.getSize());
   }
   
   protected void parse_instruction_size(ByteBuffer buffer, BHeader header, LHeaderParseState s) {

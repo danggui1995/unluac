@@ -55,7 +55,7 @@ public class BHeader {
     this.lheader = lheader;
     this.lheader_type = version.getLHeaderType();
     integer = lheader.integer;
-    sizeT = lheader.sizeT;
+    sizeT = lheader.integer;
     bool = lheader.bool;
     number = lheader.number;
     linteger = lheader.linteger;
@@ -92,7 +92,7 @@ public class BHeader {
     lheader_type = version.getLHeaderType();
     lheader = lheader_type.parse(buffer, this);
     integer = lheader.integer;
-    sizeT = lheader.sizeT;
+    sizeT = lheader.integer;
     bool = lheader.bool;
     number = lheader.number;
     linteger = lheader.linteger;
